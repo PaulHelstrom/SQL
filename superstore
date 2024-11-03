@@ -25,27 +25,32 @@ VALUES
     (14, 'Cutlery Set', 'Kitchen Supplies', 34.50, 40, 4.4),
     (15, 'Cozy Throw Blanket', 'Furnishings', 24.99, 100, 4.2);
 
+-- opens full data base 
 Select *
 From superstore;
 
+-- opens item name and price, ordered by price 
 Select item_name,price
 From superstore
 Order by price;
 
+-- opens avrage price and item name, price is descending order 
 Select AVG(price), item_name
 From superstore
 group by item_name
 order by AVG(price) desc;
 
+-- opens item name and price is kitchen supplies 
 Select item_name, price
 From superstore
 Where category="Kitchen Supplies";
 
+-- opens stock quantity and item name in electronics
 Select stock_quantity,item_name
 from superstore 
 Where category='Electronics';
 
- -- sum of all itmes in a catagory
+ -- sum of all itmes in all catagories
  Select Sum(stock_quantity),category
  from superstore
  group by category;
